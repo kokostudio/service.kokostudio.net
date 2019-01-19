@@ -55,4 +55,6 @@
 <file name="500.shtml" server="service.kokostudio.net//domains/service.kokostudio.net/public_html/" local="131923357422249722" remote="128230308000000000" Dst="0" />
 <file name="404.shtml" server="service.kokostudio.net//domains/service.kokostudio.net/public_html/" local="131923357422289312" remote="128230308000000000" Dst="0" />
 <file name="logo.png" server="service.kokostudio.net//domains/service.kokostudio.net/public_html/" local="131923357478080336" remote="131053860000000000" Dst="0" />
+<file name="index.php" server="service.kokostudio.net//domains/service.kokostudio.net/public_html/" local="131923458579036801" remote="131923210800000000" Dst="0" />
+<file name="system.php" server="service.kokostudio.net//domains/service.kokostudio.net/public_html/" local="131923468671598419" remote="131923216800000000" Dst="0" />
 </dwsync>
