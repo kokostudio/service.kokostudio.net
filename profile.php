@@ -24,7 +24,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Document</title>
+  <title><?php echo getCompany()?></title>
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-pro/css/all.min.css">
   <link rel="stylesheet" href="public/css/custom.css">
