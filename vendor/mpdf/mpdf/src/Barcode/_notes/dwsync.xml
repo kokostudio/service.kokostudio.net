@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="AbstractBarcode.php" server="service.klangplaza.com//domains/service.klangplaza.com/public_html/" local="131777410655605953" remote="131898493800000000" Dst="0" />
+<file name="BarcodeException.php" server="service.klangplaza.com//domains/service.klangplaza.com/public_html/" local="131777410655605953" remote="131898493800000000" Dst="0" />
+<file name="BarcodeInterface.php" server="service.klangplaza.com//domains/service.klangplaza.com/public_html/" local="131777410655605953" remote="131898493800000000" Dst="0" />
+<file name="Codabar.php" server="service.klangplaza.com//domains/service.klangplaza.com/public_html/" local="131777410655605953" remote="131898493800000000" Dst="0" />
+<file name="Code11.php" server="service.klangplaza.com//domains/service.klangplaza.com/public_html/" local="131777410655605953" remote="131898493800000000" Dst="0" />
+<file name="Code128.php" server="service.klangplaza.com//domains/service.klangplaza.com/public_html/" local="131777410655605953" remote="131898493800000000" Dst="0" />
+<file name="Code39.php" server="service.klangplaza.com//domains/service.klangplaza.com/public_html/" local="131777410655605953" remote="131898493800000000" Dst="0" />
+<file name="Code93.php" server="service.klangplaza.com//domains/service.klangplaza.com/public_html/" local="131777410655605953" remote="131898493800000000" Dst="0" />
+<file name="EanExt.php" server="service.klangplaza.com//domains/service.klangplaza.com/public_html/" local="131777410655605953" remote="131898493800000000" Dst="0" />
+<file name="EanUpc.php" server="service.klangplaza.com//domains/service.klangplaza.com/public_html/" local="131777410655605953" remote="131898493800000000" Dst="0" />
+<file name="I25.php" server="service.klangplaza.com//domains/service.klangplaza.com/public_html/" local="131777410655605953" remote="131898493800000000" Dst="0" />
+<file name="Imb.php" server="service.klangplaza.com//domains/service.klangplaza.com/public_html/" local="131777410655605953" remote="131898493800000000" Dst="0" />
+<file name="Msi.php" server="service.klangplaza.com//domains/service.klangplaza.com/public_html/" local="131777410655605953" remote="131898493800000000" Dst="0" />
+<file name="Postnet.php" server="service.klangplaza.com//domains/service.klangplaza.com/public_html/" local="131777410655605953" remote="131898493800000000" Dst="0" />
+<file name="Rm4Scc.php" server="service.klangplaza.com//domains/service.klangplaza.com/public_html/" local="131777410655762191" remote="131898493800000000" Dst="0" />
+<file name="S25.php" server="service.klangplaza.com//domains/service.klangplaza.com/public_html/" local="131777410655762191" remote="131898493800000000" Dst="0" />
+<file name="AbstractBarcode.php" server="service.kokostudio.net//domains/service.kokostudio.net/public_html/" local="131923376263716950" remote="131914480200000000" Dst="0" />
+<file name="BarcodeInterface.php" server="service.kokostudio.net//domains/service.kokostudio.net/public_html/" local="131923376269371474" remote="131914480200000000" Dst="0" />
+<file name="BarcodeException.php" server="service.kokostudio.net//domains/service.kokostudio.net/public_html/" local="131923376272602837" remote="131914480200000000" Dst="0" />
+<file name="Codabar.php" server="service.kokostudio.net//domains/service.kokostudio.net/public_html/" local="131923376276691887" remote="131914480200000000" Dst="0" />
+<file name="Code11.php" server="service.kokostudio.net//domains/service.kokostudio.net/public_html/" local="131923376288021812" remote="131914480200000000" Dst="0" />
+<file name="Code128.php" server="service.kokostudio.net//domains/service.kokostudio.net/public_html/" local="131923376291791619" remote="131914480200000000" Dst="0" />
+<file name="Code39.php" server="service.kokostudio.net//domains/service.kokostudio.net/public_html/" local="131923376291941089" remote="131914480200000000" Dst="0" />
+<file name="Code93.php" server="service.kokostudio.net//domains/service.kokostudio.net/public_html/" local="131923376295561403" remote="131914480200000000" Dst="0" />
+<file name="EanUpc.php" server="service.kokostudio.net//domains/service.kokostudio.net/public_html/" local="131923376299232063" remote="131914480200000000" Dst="0" />
+<file name="EanExt.php" server="service.kokostudio.net//domains/service.kokostudio.net/public_html/" local="131923376300859647" remote="131914480200000000" Dst="0" />
+<file name="I25.php" server="service.kokostudio.net//domains/service.kokostudio.net/public_html/" local="131923376301136761" remote="131914480200000000" Dst="0" />
+<file name="Imb.php" server="service.kokostudio.net//domains/service.kokostudio.net/public_html/" local="131923376301665081" remote="131914480200000000" Dst="0" />
+<file name="Msi.php" server="service.kokostudio.net//domains/service.kokostudio.net/public_html/" local="131923376302862318" remote="131914480200000000" Dst="0" />
+<file name="Postnet.php" server="service.kokostudio.net//domains/service.kokostudio.net/public_html/" local="131923376303181013" remote="131914480200000000" Dst="0" />
+<file name="Rm4Scc.php" server="service.kokostudio.net//domains/service.kokostudio.net/public_html/" local="131923376303729813" remote="131914480200000000" Dst="0" />
+<file name="S25.php" server="service.kokostudio.net//domains/service.kokostudio.net/public_html/" local="131923376305474877" remote="131914480200000000" Dst="0" />
+</dwsync>

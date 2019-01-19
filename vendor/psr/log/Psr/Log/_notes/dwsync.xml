@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="AbstractLogger.php" server="service.klangplaza.com//domains/service.klangplaza.com/public_html/" local="131779934319365165" remote="131898494400000000" Dst="0" />
+<file name="InvalidArgumentException.php" server="service.klangplaza.com//domains/service.klangplaza.com/public_html/" local="131779934319385273" remote="131898494400000000" Dst="0" />
+<file name="LoggerAwareInterface.php" server="service.klangplaza.com//domains/service.klangplaza.com/public_html/" local="131779934319415254" remote="131898494400000000" Dst="0" />
+<file name="LoggerAwareTrait.php" server="service.klangplaza.com//domains/service.klangplaza.com/public_html/" local="131779934319435127" remote="131898494400000000" Dst="0" />
+<file name="LoggerInterface.php" server="service.klangplaza.com//domains/service.klangplaza.com/public_html/" local="131779934319442709" remote="131898494400000000" Dst="0" />
+<file name="LoggerTrait.php" server="service.klangplaza.com//domains/service.klangplaza.com/public_html/" local="131779934319472949" remote="131898494400000000" Dst="0" />
+<file name="LogLevel.php" server="service.klangplaza.com//domains/service.klangplaza.com/public_html/" local="131779934319405142" remote="131898494400000000" Dst="0" />
+<file name="NullLogger.php" server="service.klangplaza.com//domains/service.klangplaza.com/public_html/" local="131779934319492719" remote="131898494400000000" Dst="0" />
+<file name="AbstractLogger.php" server="service.kokostudio.net//domains/service.kokostudio.net/public_html/" local="131923380005165928" remote="131914482000000000" Dst="0" />
+<file name="InvalidArgumentException.php" server="service.kokostudio.net//domains/service.kokostudio.net/public_html/" local="131923380012436467" remote="131914482000000000" Dst="0" />
+<file name="LoggerAwareInterface.php" server="service.kokostudio.net//domains/service.kokostudio.net/public_html/" local="131923380015338708" remote="131914482000000000" Dst="0" />
+<file name="LoggerAwareTrait.php" server="service.kokostudio.net//domains/service.kokostudio.net/public_html/" local="131923380032303318" remote="131914482000000000" Dst="0" />
+<file name="LoggerTrait.php" server="service.kokostudio.net//domains/service.kokostudio.net/public_html/" local="131923380044520631" remote="131914482000000000" Dst="0" />
+<file name="LoggerInterface.php" server="service.kokostudio.net//domains/service.kokostudio.net/public_html/" local="131923380047751987" remote="131914482000000000" Dst="0" />
+<file name="LogLevel.php" server="service.kokostudio.net//domains/service.kokostudio.net/public_html/" local="131923380061056690" remote="131914482000000000" Dst="0" />
+<file name="NullLogger.php" server="service.kokostudio.net//domains/service.kokostudio.net/public_html/" local="131923380076325532" remote="131914482000000000" Dst="0" />
+</dwsync>

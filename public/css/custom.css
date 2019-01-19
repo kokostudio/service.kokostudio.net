@@ -1,0 +1,86 @@
+@font-face {
+  font-family: 'robotoregular';
+  src: url('../font/roboto-regular-webfont.woff2') format('woff2'),
+       url('../font/roboto-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'k2dregular';
+  src: url('../font/k2d-regular-webfont.woff2') format('woff2'),
+       url('../font/k2d-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'robotoregular', 'k2dregular', Tahoma;
+}
+
+td, tr {
+  white-space: normal;
+  text-align: center;
+  vertical-align: middle !important;
+  font-size: 0.95em;
+}
+
+a {
+  color: #000;
+}
+
+a:hover, a.dropdown-item:hover {
+  color: #DC3545;
+  background: #FFF;
+}
+
+.active , .active a {
+  color: #DC3545;
+}
+
+/* Sidebar */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100; /* Behind the navbar */
+  padding: 60px 0 0; /* Height of navbar */
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 60px);
+  padding-top: .5rem;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.sub-menu {
+  padding-left: 40px;
+}
+
+.picture-profile {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.picture-show {
+  width: 70px;
+  height: auto;
+}
+.picture-show:hover {
+  transition: all 0.3s;
+  transform: scale(2);
+}
+
+/* Content */
+
+[role="main"] {
+  padding-top: 80px; /* Space for fixed navbar */
+}
