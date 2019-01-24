@@ -70,9 +70,9 @@
         <td><?php echo $key+1 ?></td>
         <td><?php echo $req['req_gen'] ?></td>
         <td class="text-left"><?php echo getDepartmentName($req['req_dep']) ?>(<?php echo $req['req_user_process'] ?>)</td>
-        <td class="text-left"><?php echo $req['req_text'] ?></td>
-        <td><?php echo convertDate($req['req_create']) ?></td>
-        <td><?php echo ($date_end ? convertDate($date_end) : '-') ?></td>
+        <td class="text-left"><?php echo $req['req_text'] ?>(<?php echo getUserFullname($req['req_operator']) ?>)</td>
+        <td><?php echo convertDate($req['req_create']).' '.date('H:i',strtotime($req['req_create'])).' น.' ?></td>
+        <td><?php echo ($date_end ? convertDate($date_end).' '.date('H:i',strtotime($req['req_create'])).' น.' : '-') ?></td>
         <td class="<?php echo colorStatus($req['req_status']) ?>">
           <?php echo getStatusName($req['req_status']) ?>
         </td>
