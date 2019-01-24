@@ -160,6 +160,7 @@
                             <th>รายละเอียด</th>
                             <th>หมวดหมู่</th>
                             <th>วันที่แจ้ง/ผู้รับเรื่อง</th>
+							<th>วันที่เสร็จ</th>
                             <th>สถานะ</th>
                             <th>รายละเอียด</th>
                           </tr>
@@ -181,6 +182,14 @@
                             <td class="text-left"><?php echo $req['req_text'] ?></td>
                             <td><?php echo $req['cat_name'] ?></td>
                             <td><?php echo convertDate($req['req_create']).' '.date('H:i',strtotime($req['req_create'])).' น.' ?><br><small class="text-primary"><?php echo getUserFullName($req['req_user']) ?></small></td>
+							<td><?php 
+									if($req['req_status']==4){
+										echo convertDate($req['req_update']).' '.date('H:i',strtotime($req['req_update'])).' น.' ;
+										//echo '<br><small class="text-primary">'.getUserFullName($req['req_user']).'</small>';
+									}
+								?>
+								
+							</td>
                             <td class="<?php echo colorStatus($req['req_status']) ?>">
                               <button class="<?php echo buttonStatus($req['req_status']) ?>"><?php echo getStatusName($req['req_status']) ?></button>
                             </td>
@@ -346,7 +355,20 @@
                     <div class="col-sm-4">
                       <input type="text" class="form-control" readonly
                         value="<?php echo getUserFullname($_SESSION['user_code']); ?>">
+						<?/*<select id="user" class="form-control form-control-sm" name="user_code_useปปปป">
+						<option value="">--- กรุณาเลือก ---</option>
+						<?php
+						  $stmt = getUser();
+						  $result = $stmt->fetchAll();
+
+						  foreach($result as $user):
+							$name = ucfirst($user['user_name']).' '.ucfirst($user['user_surname']);
+							echo "<option value='{$user['user_code']}'>{$name}</option>";
+						  endforeach;
+						?>
+					  </select>*/?>
                     </div>
+					  
                   </div>
 				  <div class="form-group row">
                     <label class="col-sm-4 col-form-label text-md-right">สาขา</label>
