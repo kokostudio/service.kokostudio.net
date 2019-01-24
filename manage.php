@@ -203,7 +203,7 @@
 <?php echo getDepartmentName($req['req_dep']) ?></small></td>
                             <td class="text-left"><?php echo $req['req_text'] ?><br><small class="text-primary"><?php echo getUserFullName($req['req_operator']) ?></small></td>
                             <td><?php echo convertDate($req['req_create']) ?><br><small class="text-primary"><?php echo getUserFullName($req['req_user']) ?></small></td>
-                            <td><?php echo ($date_end ? convertDate($date_end) : '-') ?></td>
+                            <td><?php echo ($date_end ? convertDate($date_end).' '.date('H:i',strtotime($req['req_create'])).' น.' : '-') ?></td>
                             <td class="<?php echo colorStatus($req['req_status']) ?>">
                               <button class="<?php echo buttonStatus($req['req_status']) ?>"><?php echo getStatusName($req['req_status']) ?></button>
                             </td>
