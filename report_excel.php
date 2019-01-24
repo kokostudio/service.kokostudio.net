@@ -58,6 +58,7 @@
         <td>ผู้ขอใช้บริการ</td>
 		<td>สาขา</td>
         <td>รายละเอียด</td>
+		<td>ผู้รับดำเนินการ</td>
         <td>วันที่แจ้ง</td>
         <td>วันที่เสร็จ</td>
         <td>สถานะ</td>
@@ -83,8 +84,9 @@
         <td class="text-left" style="text-align: left"><?php echo $req['req_user_process'] ?></td>
 		<td class="text-left" style="text-align: left"><?php echo getUserBranch($req['req_user']) ?></td>
         <td class="text-left" style="text-align: left"><?php echo $req['req_text'] ?></td>
-        <td><?php echo convertDate($req['req_create']) ?></td>
-        <td><?php echo ($date_end ? convertDate($date_end) : '-') ?></td>
+		<td class="text-left" style="text-align: left"><?php echo getUserFullname($req['req_operator']) ?></td>
+        <td><?php echo convertDate($req['req_create']).' '.date('H:i',strtotime($req['req_create'])).' น.' ?></td>
+        <td><?php echo convertDate($req['req_update']).' '.date('H:i',strtotime($req['req_update'])).' น.'; ?><?//echo ($date_end ? convertDate($date_end) : '-') ?></td>
         <td class="<?php echo colorStatus($req['req_status']) ?>">
           <?php echo getStatusName($req['req_status']) ?>
         </td>
