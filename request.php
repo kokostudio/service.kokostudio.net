@@ -185,10 +185,8 @@
 							<td><?php 
 									if($req['req_status']==4){
 										echo convertDate($req['req_update']).' '.date('H:i',strtotime($req['req_update'])).' น.' ;
-										//echo '<br><small class="text-primary">'.getUserFullName($req['req_user']).'</small>';
 									}
 								?>
-								
 							</td>
                             <td class="<?php echo colorStatus($req['req_status']) ?>">
                               <button class="<?php echo buttonStatus($req['req_status']) ?>"><?php echo getStatusName($req['req_status']) ?></button>
