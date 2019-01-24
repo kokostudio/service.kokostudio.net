@@ -347,13 +347,10 @@
                       <textarea name="req_text" class="form-control" rows="5" required></textarea>
                     </div>
                   </div>
-				  <hr>
 				  <div class="form-group row">
-                    <label class="col-sm-4 col-form-label text-md-right">ผู้รับเรื่อง</label>
+                    <label class="col-sm-4 col-form-label text-md-right">ผู้รับดำเนินการ</label>
                     <div class="col-sm-4">
-                      <input type="text" class="form-control" readonly
-                        value="<?php echo getUserFullname($_SESSION['user_code']); ?>">
-						<?/*<select id="user" class="form-control form-control-sm" name="user_code_useปปปป">
+						<select id="user_operator" class="form-control form-control-sm" name="user_operator">
 						<option value="">--- กรุณาเลือก ---</option>
 						<?php
 						  $stmt = getUser();
@@ -364,7 +361,15 @@
 							echo "<option value='{$user['user_code']}'>{$name}</option>";
 						  endforeach;
 						?>
-					  </select>*/?>
+					  </select>
+                    </div>
+				  </div>
+				  <hr>
+				  <div class="form-group row">
+                    <label class="col-sm-4 col-form-label text-md-right">ผู้รับเรื่อง</label>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" readonly
+                        value="<?php echo getUserFullname($_SESSION['user_code']); ?>">
                     </div>
 					  
                   </div>
@@ -416,6 +421,7 @@
 
             $req_user = $_POST['req_user'];
 		    $req_user_process = $_POST['user_code_use'];
+			$req_user_operator = $_POST['user_operator'];				 
 			$req_branch = $_POST['req_branch'];
 		    $req_dep = $_POST['user_dep_use'];
 			$bra_id = $_POST['bra_id'];
@@ -438,7 +444,7 @@
             $req_last = STR_PAD(($check_gen['req_last']+1), 5, "0", STR_PAD_LEFT);
             $req_gen  = $req_year.$req_last;
 
-            $data = [$req_year,$req_last,$req_gen,$req_user,$req_branch,$req_user_process,$req_dep,$bra_id,$service_id,$req_text,$req_create];
+            $data = [$req_year,$req_last,$req_gen,$req_user,$req_branch,$req_user_process,$req_user_operator,$req_dep,$bra_id,$service_id,$req_text,$req_create];
 
             // Check Service
             if(empty($service_id)){
@@ -459,8 +465,8 @@
               endif;
             }
 
-            $sql = "INSERT INTO ex_request(req_year,req_last,req_gen,req_user,req_branch,req_user_process,req_dep,bra_id,service_id,req_text,req_create)
-              VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+            $sql = "INSERT INTO ex_request(req_year,req_last,req_gen,req_user,req_branch,req_user_process,req_operator,req_dep,bra_id,service_id,req_text,req_create)
+              VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
             $stmt = $dbcon->prepare($sql);
             $result = $stmt->execute($data);
 
@@ -523,6 +529,7 @@
 			  $branch_token = getUserBranchLineToken($req_user);
 			  $dep_receive = getUserDepName($req_user);
 			  $name_user_process = getUserFullname($req_user_process);
+			  $name_user_operator = getUserFullname($req_user_operator);
 			  $name_user_branch = getUserBranch($req_user_process);
 			  $name_user_dep = getDepartmentName($req_dep);
               $date_send = date('d/m/Y');
@@ -585,6 +592,7 @@ $line_text = "
 รายละเอียด : {$req_text}
 วันที่ : {$date_send}
 เวลา : {$time_send} น.
+ผู้รับดำเนินการ : {$name_user_operator}
 ---------------------
 ผู้รับเรื่อง {$name_receive}
 ---------------------
