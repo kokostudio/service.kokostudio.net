@@ -164,6 +164,12 @@
                       <input type="text" class="form-control" value="<?php echo getStatusName($row['req_status']) ?>" readonly>
                     </div>
                   </div>
+				  <div class="form-group row">
+                    <label class="col-sm-4 col-form-label text-md-right">ผู้รับดำเนินการ</label>
+                    <div class="col-sm-3">
+                      <input type="text" class="form-control" value="<?php echo getUserFullname($row['req_operator']) ?>" readonly>
+                    </div>
+                  </div>
 				  <hr>
 				  <div class="form-group row">
                     <label class="col-sm-4 col-form-label text-md-right">ผู้รับเรื่อง</label>
