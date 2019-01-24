@@ -179,7 +179,7 @@
                             <td><?php echo $req['req_gen'] ?></td>
                             <td class="text-left"><?php echo $req['req_user_process'] ?>(<small><?php echo getUserBranch($req['req_user']) ?>)<br>
 <?php echo getDepartmentName($req['req_dep']) ?></small></td>
-                            <td class="text-left"><?php echo $req['req_text'] ?></td>
+                            <td class="text-left"><?php echo $req['req_text'] ?><?php echo getUserFullName($req['req_operator']) ?></small></td>
                             <td><?php echo $req['cat_name'] ?></td>
                             <td><?php echo convertDate($req['req_create']).' '.date('H:i',strtotime($req['req_create'])).' น.' ?><br><small class="text-primary"><?php echo getUserFullName($req['req_user']) ?></small></td>
 							<td><?php 
