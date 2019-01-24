@@ -182,11 +182,7 @@
                             <td class="text-left"><?php echo $req['req_text'] ?><?php echo getUserFullName($req['req_operator']) ?></small></td>
                             <td><?php echo $req['cat_name'] ?></td>
                             <td><?php echo convertDate($req['req_create']).' '.date('H:i',strtotime($req['req_create'])).' น.' ?><br><small class="text-primary"><?php echo getUserFullName($req['req_user']) ?></small></td>
-							<td><?php 
-									if($req['req_status']==4){
-										echo convertDate($req['req_update']).' '.date('H:i',strtotime($req['req_update'])).' น.' ;
-									}
-								?>
+							<td><?php echo (($req['req_status']==4) ? convertDate($req['req_update']).' '.date('H:i',strtotime($req['req_update'])).' น.' : '-') ;?>
 							</td>
                             <td class="<?php echo colorStatus($req['req_status']) ?>">
                               <button class="<?php echo buttonStatus($req['req_status']) ?>"><?php echo getStatusName($req['req_status']) ?></button>
