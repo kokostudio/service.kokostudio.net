@@ -311,7 +311,7 @@
                         onChange="getServiceList(this.value);" required>
                         <option value="">--- เลือก หมวดหมู่ ---</option>
                         <?php
-                          $result = getSelectCategory();
+                          $result = getCategory();
                           foreach($result as $cat) : 
                         ?>
                         <option value="<?php echo $cat['cat_id'] ?>"><?php echo $cat['cat_name'] ?></option>
