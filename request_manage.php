@@ -358,7 +358,7 @@ $row<?php
                 
               $data_picture = [$file_new_name,$req_id];
 
-              $sql = "UPDATE ex_manage SET
+              $sql = "UPDATE ex_request SET
                 req_file = ?
                 WHERE req_id = ?";
               $stmt = $dbcon->prepare($sql);
