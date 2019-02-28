@@ -352,6 +352,14 @@
     return $stmt;
   }
 
+  function getSelectCategory(){
+    global $dbcon;
+    $sql = "SELECT * FROM ex_category WHERA cat_status = 1";
+    $stmt = $dbcon->prepare($sql);
+    $stmt->execute();
+    return $stmt;
+  }
+
   function getCategoryName($id){
     global $dbcon;
     $data = [$id];

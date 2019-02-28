@@ -5,7 +5,7 @@
 
     $data = [$_POST['cat_id']];
 
-    $sql = "SELECT * FROM ex_service WHERE cat_id = ?";
+    $sql = "SELECT * FROM ex_service WHERE cat_id = ? AND service_status = 1";
     $stmt = $dbcon->prepare($sql);
     $stmt->execute($data);
     $result = $stmt->fetchAll();
