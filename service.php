@@ -9,7 +9,7 @@
   if(!isset($_SESSION['user_code']) || ($user_level == 1 || empty($user_level))){
     alertMsg('danger','ไม่พบหน้านี้ในระบบ','request.php');
   }
-
+ 
   $act = isset($_GET['act']) ? $_GET['act'] : 'index';
 ?>
 <!DOCTYPE html>
@@ -18,7 +18,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title><?php echo getCompany()?></title>
+  <title><?php echo getCompany();?></title>
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-pro/css/all.min.css">
   <link rel="stylesheet" href="node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
