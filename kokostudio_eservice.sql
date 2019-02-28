@@ -227,22 +227,22 @@ CREATE TABLE `ex_manage` (
 
 CREATE TABLE `ex_request` (
   `req_id` int(11) NOT NULL,
-  `req_year` varchar(10) NOT NULL,
-  `req_last` varchar(5) NOT NULL,
+  `req_year` varchar(10)  NOT NULL,
+  `req_last` varchar(5)  NOT NULL,
   `req_gen` varchar(10) NOT NULL,
   `service_id` int(11) NOT NULL,
-  `req_user` varchar(20) NOT NULL,
-  `req_user_process` varchar(20) NOT NULL,
-  `req_operator` varchar(20) NOT NULL,
+  `req_user` varchar(20)  NOT NULL,
+  `req_user_process` varchar(20)  NOT NULL,
+  `req_operator` varchar(20)  NOT NULL,
   `req_dep` int(11) NOT NULL,
   `bra_id` int(11) NOT NULL,
   `req_branch` int(11) NOT NULL,
-  `req_file` varchar(20) NOT NULL,
-  `req_text` text NOT NULL,
+  `req_file` varchar(20)  NOT NULL,
+  `req_text` text  NOT NULL,
   `req_status` int(11) DEFAULT '1',
-  `req_create` varchar(50) NOT NULL,
+  `req_create` varchar(50)  NOT NULL,
   `req_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
 
 --
 -- Dumping data for table `ex_request`
