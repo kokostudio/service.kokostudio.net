@@ -354,7 +354,7 @@
 
   function getSelectCategory(){
     global $dbcon;
-    $sql = "SELECT * FROM ex_category WHERA cat_status = 1";
+    $sql = "SELECT * FROM ex_category WHERE cat_status = 1";
     $stmt = $dbcon->prepare($sql);
     $stmt->execute();
     return $stmt;
@@ -410,7 +410,7 @@
 
   function getService(){
     global $dbcon;
-    $sql = "SELECT * FROM ex_service";
+    $sql = "SELECT * FROM ex_service WHERE service_status = 1";
     $stmt = $dbcon->prepare($sql);
     $stmt->execute();
     return $stmt;
@@ -768,7 +768,7 @@
 
   function getStatus(){
     global $dbcon; 
-    $sql = "SELECT * FROM ex_status";
+    $sql = "SELECT * FROM ex_status WHERE status_status = 1";
     $stmt = $dbcon->prepare($sql);
     $stmt->execute();
     return $stmt;
@@ -796,7 +796,7 @@
 
   function getManageStatus(){
     global $dbcon;
-    $sql = "SELECT * FROM ex_status WHERE status_id != 1";
+    $sql = "SELECT * FROM ex_status WHERE status_id != 1 AND status_status = 1";
     $stmt = $dbcon->prepare($sql);
     $stmt->execute($data);
     return $stmt;
@@ -885,6 +885,18 @@ WHERE usr.user_code = ?";
     return $get;
   }
 
+  function getDateStart($req){
+    global $dbcon; 
+    $data = [$req];
+    $sql = "SELECT manage_date_start FROM ex_manage 
+      WHERE req_id = ? ORDER BY manage_id DESC LIMIT 1";
+    $stmt = $dbcon->prepare($sql);
+    $stmt->execute($data);
+    $row = $stmt->fetch();
+    $get = $row['manage_date_start'];
+    return $get;
+  }
+
   function lineNotify($text,$token) {
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, "https://notify-api.line.me/api/notify");
@@ -900,4 +912,10 @@ WHERE usr.user_code = ?";
     curl_close($ch);
     return $result;
   }
+
+  function datediff($start,$end) {
+	$datediff = strtotime($end) - strtotime($start);
+    return floor($datediff / (60 * 60 * 24)+1);
+  }
+
 ?>
