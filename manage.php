@@ -105,7 +105,7 @@
                       <option value="manage.php?year=<?php echo @$_GET['year'] ?>&month=<?php echo @$_GET['month'] ?>&cat=&serv=<?php echo @$_GET['serv'] ?>&stat=<?php echo @$_GET['stat'] ?>"
                         <?php if(empty(@$_GET['cat'])) echo 'selected' ?>>--- ค้นหา หมวดหมู่ ---</option>
                       <?php
-                        $categorys = getCategory();
+                        $categorys = getSelectCategory();
                         foreach($categorys as $cat) : 
                       ?>
                       <option value="manage.php?year=<?php echo @$_GET['year'] ?>&month=<?php echo @$_GET['month'] ?>&cat=<?php echo $cat['cat_id'] ?>&serv=<?php echo @$_GET['serv'] ?>&stat=<?php echo @$_GET['stat'] ?>" <?php if(@@$_GET['cat'] == $cat['cat_id']) echo 'selected' ?>><?php echo $cat['cat_name'] ?></option> 
@@ -185,9 +185,11 @@
                             @$requests = getFilterRequest($getYear,$getMonth,$getCat,$getServ,$getStat,$getUser);
                             foreach($requests as $key => $req):
                               $todate = strtotime(date('Y-m-d'));
+					   		  $date_start = getDateStart($req['req_id']);
                               $date_end = getDateEnd($req['req_id']);
                               $conv_date_end = strtotime(getDateEnd($req['req_id']));
                               $check_expire = $todate - $conv_date_end;
+					   		  
                           ?>
                           <tr <?php 
 							  	if($check_expire >= 0 && ($req['req_status'] == 2 || $req['req_status'] == 3)){ 
@@ -203,7 +205,7 @@
 <?php echo getDepartmentName($req['req_dep']) ?></small></td>
                             <td class="text-left"><?php echo $req['req_text'] ?><br><small class="text-primary"><?php echo getUserFullName($req['req_operator']) ?></small></td>
                             <td><?php echo convertDate($req['req_create']) ?><br><small class="text-primary"><?php echo getUserFullName($req['req_user']) ?></small></td>
-                            <td><?php echo (($req['req_status']==4) ? convertDate($date_end).' '.date('H:i',strtotime($req['req_create'])).' น.' : '-') ?></td>
+                            <td><?php echo (($req['req_status']==4) ? convertDate($date_end).' '.date('H:i',strtotime($req['req_create'])).' น.<br>ดำเนินการ '.datediff($req['req_create'],$date_end).' วัน' : '-') ?></td>
                             <td class="<?php echo colorStatus($req['req_status']) ?>">
                               <button class="<?php echo buttonStatus($req['req_status']) ?>"><?php echo getStatusName($req['req_status']) ?></button>
                             </td>

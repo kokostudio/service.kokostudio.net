@@ -173,6 +173,7 @@
                             @$getUser = $_SESSION['user_code'];
                             @$requests = getFilterRequest($getYear,$getMonth,$getCat,$getServ,$getStat,$getUser);
                             foreach($requests as $key => $req):
+							 $date_end = getDateEnd($req['req_id']);
                           ?>
                           <tr>
                             <td><?php echo $key+1 ?></td>
@@ -182,7 +183,7 @@
                             <td class="text-left"><?php echo $req['req_text'] ?><?php echo getUserFullName($req['req_operator']) ?></small></td>
                             <td><?php echo $req['cat_name'] ?></td>
                             <td><?php echo convertDate($req['req_create']).' '.date('H:i',strtotime($req['req_create'])).' น.' ?><br><small class="text-primary"><?php echo getUserFullName($req['req_user']) ?></small></td>
-							<td><?php echo (($req['req_status']==4) ? convertDate($req['req_update']).' '.date('H:i',strtotime($req['req_update'])).' น.' : '-') ;?>
+							<td><?php echo (($req['req_status']==4) ? convertDate($date_end).' '.date('H:i',strtotime($req['req_create'])).' น.<br>ดำเนินการ '.datediff($req['req_create'],$date_end).' วัน' : '-') ?>
 							</td>
                             <td class="<?php echo colorStatus($req['req_status']) ?>">
                               <button class="<?php echo buttonStatus($req['req_status']) ?>"><?php echo getStatusName($req['req_status']) ?></button>

@@ -61,6 +61,7 @@
 		<td>ผู้รับดำเนินการ</td>
         <td>วันที่แจ้ง</td>
         <td>วันที่เสร็จ</td>
+		<td>ดำเนินการ(วัน)</td>
         <td>สถานะ</td>
 		<td>ผู้รับเรื่อง</td>
       </tr>
@@ -87,6 +88,7 @@
 		<td class="text-left" style="text-align: left"><?php echo getUserFullname($req['req_operator']) ?></td>
         <td><?php echo convertDate($req['req_create']).' '.date('H:i',strtotime($req['req_create'])).' น.' ?></td>
         <td><?php echo convertDate($req['req_update']).' '.date('H:i',strtotime($req['req_update'])).' น.'; ?><?//echo ($date_end ? convertDate($date_end) : '-') ?></td>
+		<td><?php if($date_end==''){ echo '-'; }else{ echo datediff($req['req_create'],$date_end); } ?></td>
         <td class="<?php echo colorStatus($req['req_status']) ?>">
           <?php echo getStatusName($req['req_status']) ?>
         </td>
