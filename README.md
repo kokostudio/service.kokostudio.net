@@ -4,12 +4,9 @@
 update 28/2/2019
 -----
 แก้ไข ปัญหา สถานะปิด ไม่ให้แสดง
--
-request.php
--
-manage.php
--
-service.php
+-request.php
+-manage.php
+-service.php
 -----
 update 17/1/2019
 -----
