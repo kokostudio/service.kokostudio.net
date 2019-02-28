@@ -22,7 +22,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Document</title>
+  <title><?php echo getCompany()?></title>
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-pro/css/all.min.css">
   <link rel="stylesheet" href="public/css/custom.css">
@@ -93,6 +93,10 @@
           <div class="form-group row">
             <label class="col-sm-3 col-form-label text-md-right">สถานะ</label>
             <input class="col-sm-7" value="<?php echo getStatusName($row['req_status']) ?>"></input>
+          </div>
+		  <div class="form-group row">
+            <label class="col-sm-3 col-form-label text-md-right">ผู้รับดำเนินการ</label>
+            <input class="col-sm-4" value="<?php echo getUserFullname($row['req_operator']) ?>"></input>
           </div>
 		  <hr>
           <div class="form-group row">
