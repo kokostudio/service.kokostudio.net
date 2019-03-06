@@ -95,8 +95,8 @@
   RewriteEngine On
   
   #บังคับ เข้า https ไม่ใช้ ก็ remark ไว้
-  RewriteCond %{HTTPS} off
-  RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  #RewriteCond %{HTTPS} off
+  #RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
   #
   
   # Handle Authorization Header
