@@ -194,7 +194,7 @@ CREATE TABLE `ex_login` (
 
 INSERT INTO `ex_login` (`login_id`, `user_code`, `user_username`, `user_password`, `login_create`, `login_update`) VALUES
 (1, '111111', 'user', '$2y$10$QwwrbUQyM2pxr77evKi3BOzCvVOcZGkWUW27QNNcO.Q2sNLh092eO', '2018-11-19 11:08:08', '2018-12-14 07:47:45'),
-(2, '999999', 'admin', '$2y$10$GX6BcPV0AAHSuEcScdRawuHpqxzXhLYeoCr/dre3dgvhlJL0gjY8y', '2018-11-19 11:35:15', '2018-12-19 04:15:12'),
+(2, '999999', 'admin', '$2y$10$YxXve7UNruVLFwu2bBg2hejvPenTdA1W/BcC6IOLho5uKj7uW5tNS', '2018-11-19 11:35:15', '2018-12-19 04:15:12'),
 (3, '777777', 'manage', '$2y$10$/xbqD0vpXQqB10i.cvSzk.NXkFFUyjfjfFhF7mVPoKLpc3Em1kN4G', '2018-11-22 08:05:48', '2018-12-14 07:47:41');
 
 -- --------------------------------------------------------
