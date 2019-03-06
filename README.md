@@ -3,6 +3,9 @@
 -----
 update 28/2/2019
 -----
+แก้ไข กรณี upload รูปไม่ได้ตอน update
+- request_manage.php
+
 เพิ่มจำนวนวันในการดำเนินการ
 - function.php
 - request.php
