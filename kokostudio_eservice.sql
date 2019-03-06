@@ -192,7 +192,7 @@ INSERT INTO `ex_login` (`login_id`, `user_code`, `user_username`, `user_password
 
 -- --------------------------------------------------------
 
---
+-- 
 -- Table structure for table `ex_manage`
 --
 
