@@ -1,6 +1,10 @@
 # service.kokostudio.net
 โปรแกรม eservice โดยคุณ @ɴäʍ` ขอบคุณสำหรับโปรแกรมดี ๆ ครับ
 -----
+update 26/3/2019
+-----
+- แก้ไข database kokostudio_eservice.sql ใช้งานไม่ได้
+-----
 update 28/2/2019
 -----
 แก้ไข กรณี upload รูปไม่ได้ตอน update
