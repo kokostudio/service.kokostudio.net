@@ -1,9 +1,16 @@
 # service.kokostudio.net
 โปรแกรม eservice โดยคุณ @ɴäʍ` ขอบคุณสำหรับโปรแกรมดี ๆ ครับ
 -----
-update 26/3/2019
+update 7/3/2019
 -----
-- แก้ไข database kokostudio_eservice.sql ใช้งานไม่ได้
+แก้ไข แสดงผู้รับดำเนินการ
+- request.php
+- manage.php
+-----
+update 6/3/2019
+-----
+แก้ไข database kokostudio_eservice.sql ใช้งานไม่ได้
+- kokostudio_eservice.sql
 -----
 update 28/2/2019
 -----
