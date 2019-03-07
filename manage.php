@@ -185,7 +185,7 @@
                             @$requests = getFilterRequest($getYear,$getMonth,$getCat,$getServ,$getStat,$getUser);
                             foreach($requests as $key => $req):
                               $todate = strtotime(date('Y-m-d'));
-					   		              $date_start = getDateStart($req['req_id']);
+					   		  $date_start = getDateStart($req['req_id']);
                               $date_end = getDateEnd($req['req_id']);
                               $conv_date_end = strtotime(getDateEnd($req['req_id']));
                               $check_expire = $todate - $conv_date_end;
@@ -200,7 +200,7 @@
 								} 
 						  		?>>
                             <td><?php echo $key+1 ?></td>
-                            <td><?php echo $req['req_gen'] ?>xxxx</td>
+                            <td><?php echo $req['req_gen'] ?><br><?php echo (($req['req_status']==4) ? '<button class="btn btn-warning btn-sm">รอประเมิน</button>' : '') ?></td>
                             <td class="text-left"><?php echo $req['req_user_process'] ?>(<small><?php echo getUserBranch($req['req_user']) ?>)<br>
 <?php echo getDepartmentName($req['req_dep']) ?></small></td>
                             <td class="text-left"><?php echo $req['req_text'] ?><br><small class="text-primary"><?php echo getUserFullName($req['req_operator']) ?></small></td>

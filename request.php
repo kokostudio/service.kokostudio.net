@@ -157,7 +157,7 @@
                             <th>#</th>
                             <th>เลขที่บริการ</th>
                             <th>ผู้ขอใช้บริการ</th>
-                            <th>รายละเอียด</th>
+                            <th>รายละเอียด/ผู้รับดำเนินการ</th>
                             <th>หมวดหมู่</th>
                             <th>วันที่แจ้ง/ผู้รับเรื่อง</th>
 							<th>วันที่เสร็จ</th>
@@ -177,12 +177,15 @@
                           ?>
                           <tr>
                             <td><?php echo $key+1 ?></td>
-                            <td><?php echo $req['req_gen'] ?></td>
+                            <td>
+								<?php echo $req['req_gen'] ?><br><?php echo (($req['req_status']==4) ? '<button class="btn btn-warning btn-sm " data-toggle="modal" data-target="#addRating">รอประเมิน</button>' : '') ?>
+								
+							</td>
                             <td class="text-left"><?php echo $req['req_user_process'] ?>(<small><?php echo getUserBranch($req['req_user']) ?>)<br>
 <?php echo getDepartmentName($req['req_dep']) ?></small></td>
-                            <td class="text-left"><?php echo $req['req_text'] ?><?php echo getUserFullName($req['req_operator']) ?></small></td>
+                            <td class="text-left"><?php echo $req['req_text'] ?><br><small class="text-primary"><?php echo getUserFullName($req['req_operator']) ?></small></td>
                             <td><?php echo $req['cat_name'] ?></td>
-                            <td><?php echo convertDate($req['req_create']).' '.date('H:i',strtotime($req['req_create'])).' น.' ?><br><small class="text-primary"><?php echo getUserFullName($req['req_user']) ?></small></td>
+                            <td><?php echo convertDate($req['req_create']) ?><br><small class="text-primary"><?php echo getUserFullName($req['req_user']) ?></small></td>
 							<td><?php echo (($req['req_status']==4) ? convertDate($date_end).' '.date('H:i',strtotime($req['req_create'])).' น.<br>ดำเนินการ '.datediff($req['req_create'],$date_end).' วัน' : '-') ?>
 							</td>
                             <td class="<?php echo colorStatus($req['req_status']) ?>">
