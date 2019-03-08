@@ -200,7 +200,16 @@
 								} 
 						  		?>>
                             <td><?php echo $key+1 ?></td>
-                            <td><?php echo $req['req_gen'] ?><br><?php echo (($req['req_status']==4) ? '<button class="btn btn-warning btn-sm">รอประเมิน</button>' : '') ?></td>
+                            <td><?php echo $req['req_gen'] ?><br>
+								<?php if($req['req_status']==4){ 
+										if($req['req_rating']<1){
+											echo '<button class="btn btn-warning btn-sm " data-toggle="modal" data-target="#addRating'.$req['req_id'].'">รอประเมิน</button>';
+										}else{
+											echo colorRating($req['req_rating']);
+										}
+									}
+								?>	
+							</td>
                             <td class="text-left"><?php echo $req['req_user_process'] ?>(<small><?php echo getUserBranch($req['req_user']) ?>)<br>
 <?php echo getDepartmentName($req['req_dep']) ?></small></td>
                             <td class="text-left"><?php echo $req['req_text'] ?><br><small class="text-primary"><?php echo getUserFullName($req['req_operator']) ?></small></td>

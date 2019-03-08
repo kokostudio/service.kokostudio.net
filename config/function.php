@@ -873,6 +873,41 @@ WHERE usr.user_code = ?";
     }
   }
 
+  function colorRating($code){
+    switch ($code) {
+      case '5':
+        echo '<div class="text-success"><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i></div>';
+        break;
+      case '4':
+        echo '<div class="text-success"><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i></div>';
+        break;
+      case '3':
+        echo '<div class="text-info"><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i></div>';
+        break;
+      case '2':
+        echo '<div class="text-warning"><i class="fas fa-star"></i> <i class="fas fa-star"></i></div>';
+        break;
+      case '1':
+        echo '<div class="text-danger"><i class="fas fa-star"></i></div>';
+        break;  
+      default:
+        echo '';
+        break;
+    }
+  }
+
+  function getRatingName($status){
+    global $dbcon; 
+    $data = [$status];
+    $sql = "SELECT * FROM ex_assessment WHERE assessment_id = ?";
+    $stmt = $dbcon->prepare($sql);
+    $stmt->execute($data);
+    $row = $stmt->fetch();
+    $get = $row['assessment_name'];
+    return $get;
+  }
+
+
   function getDateEnd($req){
     global $dbcon; 
     $data = [$req];

@@ -29,6 +29,8 @@
   <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-pro/css/all.min.css">
   <link rel="stylesheet" href="node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="public/css/custom.css">
+	
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
 </head>
 <body>
   <?php include_once 'inc/navbar.php' ?>
@@ -178,7 +180,134 @@
                           <tr>
                             <td><?php echo $key+1 ?></td>
                             <td>
-								<?php echo $req['req_gen'] ?><br><?php echo (($req['req_status']==4) ? '<button class="btn btn-warning btn-sm " data-toggle="modal" data-target="#addRating">รอประเมิน</button>' : '') ?>
+								<?php echo $req['req_gen'] ?><br>
+								
+								<?php if($req['req_status']==4){ 
+										if($req['req_rating']<1){
+											echo '<button class="btn btn-warning btn-sm " data-toggle="modal" data-target="#addRating'.$req['req_id'].'">รอประเมิน</button>';
+										}else{
+											echo colorRating($req['req_rating']);
+										}
+									}
+								?>
+<!-- Modal Add Rating -->
+        <div class="modal fade" id="addRating<?php echo $req['req_id']?>">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">ให้คะแนน</h5>
+              </div>
+              <?php
+                @$req_id = $req['req_id'];
+                $stmt = getQueryRequest($req_id);
+                $row = $stmt->fetch();
+              ?>
+              <div class="modal-body">
+                <form action="?act=update" method="POST" enctype="multipart/form-data">
+                  <div class="form-group row" style="display: none">
+                    <label class="col-sm-4 col-form-label text-md-right">ลำดับบริการ</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" name="req_id" readonly
+                        value="<?php echo $req['req_id'] ?>">
+                    </div>
+                  </div>
+                  <div class="form-group row" style="display: none">
+                    <label class="col-sm-4 col-form-label text-md-right">ผู้ใช้บริการ</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" name="req_user" readonly
+                        value="<?php echo $row['req_user'] ?>">
+                    </div>
+                  </div>
+                  <div class="form-group row" style="display: none">
+                    <label class="col-sm-4 col-form-label text-md-right">รหัสบริการ</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" name="req_gen" readonly
+                        value="<?php echo $row['req_gen'] ?>">
+                    </div>
+                  </div>
+                  <div class="form-group row" style="display: none">
+                    <label class="col-sm-4 col-form-label text-md-right">รหัสบริการ</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" name="req_text" readonly
+                        value="<?php echo $row['req_text'] ?>">
+                    </div>
+                  </div>
+                  <div class="form-group row" style="display: none">
+                    <label class="col-sm-4 col-form-label text-md-right">รหัสบริการ</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" name="service_id" readonly
+                        value="<?php echo $row['service_id'] ?>">
+                    </div>
+                  </div>
+                  <div class="form-group row" style="display: none">
+                    <label class="col-sm-4 col-form-label text-md-right">รายละเอียด</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" name="user_code" readonly
+                        value="<?php echo $_SESSION['user_code'] ?>">
+                    </div>
+                  </div>
+				  <div class="form-group row" style="display: none">
+                    <label class="col-sm-4 col-form-label text-md-right">รหัสแผนก</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" name="user_dep_code" readonly
+                        value="<?php echo $row['req_dep'] ?>">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-4 col-form-label text-md-right">เลขที่บริการ</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" name="req_gen" readonly
+                        value="<?php echo $row['req_gen'] ?>">
+                    </div>
+                  </div>
+                  <div class="form-group row justify-content-center">
+                    <div class="col-sm-1">
+
+<style>
+	
+.selected{
+    box-shadow:0px 12px 22px 1px #333;
+	
+}
+</style>	
+					</div>
+                    <div class="col-sm-2">
+					   <img src="public\images\r1.png" style="width: 100%" value="1" id="img_rating" onclick="choose(this);"><br>
+					</div>
+					<div class="col-sm-2">
+						 <img src="public\images\r2.png" style="width: 100%" value="2" id="img_rating" onclick="choose(this);"><br>
+					</div>
+					<div class="col-sm-2">
+						 <img src="public\images\r3.png" style="width: 100%" value="3" id="img_rating" onclick="choose(this);"><br>
+					</div>
+					<div class="col-sm-2">
+						 <img src="public\images\r4.png" style="width: 100%" value="4" id="img_rating" onclick="choose(this);"><br>
+					</div>
+					<div class="col-sm-2">
+						 <img src="public\images\r5.png" style="width: 100%" value="5" id="img_rating" onclick="choose(this);"><br>
+                    </div>
+					<div class="col-sm-1">
+					   
+					</div>
+                  </div>
+					<input type="hidden" id="req_rate" name="req_rate" value="">
+                  <div class="form-group row justify-content-center">
+                    <div class="col-sm-5 mb-2">
+                      <button class="btn btn-success btn-sm btn-block" name="btnUpdate">
+                        <i class="fa fa-check mr-2"></i>ยืนยัน
+                      </button>
+                    </div>
+                    <div class="col-sm-5 mb-2">
+                      <button class="btn btn-danger btn-sm btn-block" type="button" data-dismiss="modal">
+                        <i class="fas fa-times mr-2"></i>ยกเลิก
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
 								
 							</td>
                             <td class="text-left"><?php echo $req['req_user_process'] ?>(<small><?php echo getUserBranch($req['req_user']) ?>)<br>
@@ -410,9 +539,44 @@
 
           /*
 
-          Insert Item
+          Update Item
 
           */
+		  if($act == 'update'):
+            if(!isset($_POST['btnUpdate'])){
+              header('Location: index.php');
+              die();
+            }
+
+            echo $req_id = $_POST['req_id'];
+			echo $req_rating = $_POST['req_rate'];
+            //$req_user = $_POST['req_user'];
+            //$req_gen = $_POST['req_gen'];
+            //$service_id = $_POST['service_id'];
+            //$req_file = $_FILES['req_file']['name'];
+            //$req_text = $_POST['req_text'];
+
+            $data = [$req_rating,$req_id];
+
+            $sql = "UPDATE ex_request SET
+              req_rating = ?
+              WHERE req_id = ?";
+            $stmt = $dbcon->prepare($sql);
+            $result = $stmt->execute($data);
+
+            if($result) {
+              alertMsg('success','แก้ไขข้อมูลเรียบร้อยแล้วครับ',"?id={$req_id}");
+            } else {
+              alertMsg('danger','ระบบมีปัญหา, กรุณาลองใหม่อีกครั้งครับ',"?id={$req_id}");
+            }
+
+            $stmt = null;
+          endif;				 
+		   /*
+
+          Insert Item
+
+          */				 
           if($act == 'insert'):
             if(!isset($_POST['btnInsert'])){
               header('Location: index.php');
@@ -655,5 +819,17 @@ $line_text = "
       });
     }
   </script>
+	
+<script>						
+$('img').click(function(){
+    $('.selected').removeClass('selected');
+    $(this).addClass('selected');
+});		
+
+function choose(element){
+    document.getElementById('req_rate').value = element.getAttribute('value');
+}    
+
+</script>	
 </body>
 </html>
