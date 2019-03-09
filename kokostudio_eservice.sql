@@ -192,7 +192,7 @@ INSERT INTO `ex_login` (`login_id`, `user_code`, `user_username`, `user_password
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `ex_manage`
 --
 
@@ -227,6 +227,7 @@ CREATE TABLE `ex_request` (
   `req_branch` int(11) NOT NULL,
   `req_file` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `req_text` text COLLATE utf8_unicode_ci NOT NULL,
+  `req_rating` tinyint(2) NOT NULL,
   `req_status` int(11) DEFAULT '1',
   `req_create` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `req_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
