@@ -1,6 +1,13 @@
 # service.kokostudio.net
 โปรแกรม eservice โดยคุณ @ɴäʍ` ขอบคุณสำหรับโปรแกรมดี ๆ ครับ
 -----
+update 8/3/2019
+-----
+เพิ่มการประเมิน การดำเนินการ
+- เพิ่ม field req_rating ใน table ex_request
+- request.php
+- manage.php
+-----
 update 7/3/2019
 -----
 แก้ไข แสดงผู้รับดำเนินการ
