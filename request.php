@@ -825,8 +825,7 @@ $('img').click(function(){
     $('.selected').removeClass('selected');
     $(this).addClass('selected');
 });		
-
-function choose(element){
+	function choose(element){
     document.getElementById('req_rate').value = element.getAttribute('value');
 }    
 

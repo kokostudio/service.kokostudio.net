@@ -382,7 +382,7 @@
 
   function getBranch(){
     global $dbcon;
-    $sql = "SELECT * FROM ex_branch";
+    $sql = "SELECT * FROM ex_branch WHERE bra_status = 1";
     $stmt = $dbcon->prepare($sql);
     $stmt->execute();
     return $stmt;
