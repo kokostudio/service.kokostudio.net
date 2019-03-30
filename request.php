@@ -173,7 +173,7 @@
                             @$getServ = $_GET['serv'];
                             @$getStat = $_GET['stat'];
                             @$getUser = $_SESSION['user_code'];
-                            @$requests = getFilterRequest($getYear,$getMonth,$getCat,$getServ,$getStat,$getUser);
+                            @$requests = getFilterRequestUser($getYear,$getMonth,$getCat,$getServ,$getStat,$getUser);
                             foreach($requests as $key => $req):
 							 $date_end = getDateEnd($req['req_id']);
                           ?>
