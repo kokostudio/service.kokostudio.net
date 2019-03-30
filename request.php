@@ -321,9 +321,15 @@
                               <button class="<?php echo buttonStatus($req['req_status']) ?>"><?php echo getStatusName($req['req_status']) ?></button>
                             </td>
                             <td>
+                              <?php if($req['req_status']!=4){ ?>
+                              <button class="btn btn-info btn-sm" disabled>
+                                <i class="fas fa-file-alt"></i>
+                              </button>
+                              <?php }else{ ?>
                               <a href="request_view.php?id=<?php echo $req['req_id'] ?>" class="btn btn-info btn-sm">
                                 <i class="fas fa-file-alt"></i>
                               </a>
+                              <?php } ?>
                             </td>
                           </tr>
                           <?php 
