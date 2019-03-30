@@ -3,7 +3,7 @@
   $dbname = 'eservice';
   $dbchar = 'utf8';
   $dbuser = 'root';
-  $dbpass = '';
+  $dbpass = ''; 
 
   $options = [
     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
