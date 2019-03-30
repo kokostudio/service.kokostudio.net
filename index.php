@@ -8,7 +8,7 @@
   use PHPMailer\PHPMailer\PHPMailer;
   use PHPMailer\PHPMailer\Exception;
 
-  $user_level = getUserLevel($_SESSION['user_code']);
+  @$user_level = getUserLevel($_SESSION['user_code']);
   if(isset($_SESSION['user_code'])){
     alertMsg('warning','เข้าระบบอยู่แล้ว','request.php');
   }
@@ -114,11 +114,11 @@
         alertMsg('danger','ระบบมีปัญหา, กรุณาลองใหม่อีกครั้งครับ','index.php');
       }
 
-      $sql = "SELECT user_password,login.user_code,user_level
+      $sql = "SELECT user_password,login.user_code,user_level,user_status
         FROM ex_login login
         LEFT JOIN ex_user user
         ON login.user_code = user.user_code
-        WHERE (user_username = ? OR user_password = ?)";
+        WHERE (user_username = ? OR user_password = ?) AND user_status=1";
       $stmt = $dbcon->prepare($sql);
       $stmt->execute($data_check_login);
       $row = $stmt->fetch();
