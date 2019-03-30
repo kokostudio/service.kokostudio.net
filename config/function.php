@@ -680,15 +680,15 @@
     $filter_cat = ($cat ? "= {$cat}": 'IS NOT NULL');
     $filter_serv = ($serv ? "= {$serv}" : 'IS NOT NULL');
     $filter_stat = ($stat ? "= {$stat}" : 'IS NOT NULL');
-    $filter_user = ($user ? "= '{$user}'" : 'IS NOT NULL');
+    //$filter_user = ($user ? "= '{$user}'" : 'IS NOT NULL');
+    //req_user $filter_user
     $sql = "SELECT req.*,cat.cat_name
       FROM ex_request req
       LEFT JOIN ex_service serv
       ON req.service_id = serv.service_id
       LEFT JOIN ex_category cat
       ON serv.cat_id = cat.cat_id
-      WHERE req_user $filter_user
-      AND serv.cat_id $filter_cat
+      WHERE serv.cat_id $filter_cat
       AND req.service_id $filter_serv
       AND req_status $filter_stat
       AND MONTH(req_create) $filter_month
