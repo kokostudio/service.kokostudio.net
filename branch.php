@@ -18,7 +18,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title><?php echo getCompany()?></title>
+  <title>Document</title>
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-pro/css/all.min.css">
   <link rel="stylesheet" href="node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
@@ -278,7 +278,7 @@
 				  <div class="form-group row">
                     <label class="col-sm-4 col-form-label text-md-right">Line Token</label>
                     <div class="col-sm-4">
-                      <input type="text" class="form-control" name="line_token" 
+                      <input type="password" class="form-control" name="line_token" 
                         value="<?php echo $row['line_token'] ?>">
                     </div>
                   </div>
