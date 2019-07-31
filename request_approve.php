@@ -576,6 +576,8 @@
               $stmt = getSystem();
               $row = $stmt->fetch();
 
+              $mail_option = "{$row['mail_option']}";
+              $email = "{$row['email']}";
               $user_gmail = "{$row['gmail_username']}";
               $pass_gmail = "{$row['gmail_password']}";
               $email_send = "{$row['gmail_username']}";
@@ -596,45 +598,74 @@
               require 'vendor/autoload.php';
 
               try {
-                $mail = new PHPMailer(true); 
+                  if($mail_option=='0'){ 
+                      
+                    $mail = new PHPMailer(true); 
 
-                //Server settings
-                $mail->SMTPDebug = 0;                                 // Enable verbose debug output
-                $mail->isSMTP();                                      // Set mailer to use SMTP
-                $mail->Host = "smtp.gmail.com";                       // Specify main and backup SMTP servers
-                $mail->SMTPAuth = true;                               // Enable SMTP authentication
-                $mail->Username = "{$user_gmail}";                    // SMTP username
-                $mail->Password = "{$pass_gmail}";                    // SMTP password
-                $mail->SMTPSecure = "tls";                            // Enable TLS encryption, `ssl` also accepted
-                $mail->Port = 587;                                    // TCP port to connect to
-                $mail->CharSet = "UTF-8";                             // CharSet UTF-8
+                    //Server settings
+                    $mail->SMTPDebug = 0;                                 // Enable verbose debug output
+                    $mail->isSMTP();                                      // Set mailer to use SMTP
+                    $mail->Host = "smtp.gmail.com";                       // Specify main and backup SMTP servers
+                    $mail->SMTPAuth = true;                               // Enable SMTP authentication
+                    $mail->Username = "{$user_gmail}";                    // SMTP username
+                    $mail->Password = "{$pass_gmail}";                    // SMTP password
+                    $mail->SMTPSecure = "tls";                            // Enable TLS encryption, `ssl` also accepted
+                    $mail->Port = 587;                                    // TCP port to connect to
+                    $mail->CharSet = "UTF-8";                             // CharSet UTF-8
 
-                $mail->SMTPOptions = array(
-                  'ssl' => array(
-                    'verify_peer' => false,
-                    'verify_peer_name' => false,
-                    'allow_self_signed' => true
-                  )
-                );
+                    $mail->SMTPOptions = array(
+                      'ssl' => array(
+                        'verify_peer' => false,
+                        'verify_peer_name' => false,
+                        'allow_self_signed' => true
+                      )
+                    );
 
-                //Recipients
-                $mail->setFrom("{$email_send}", "{$name_send}");
-                $mail->addAddress("{$email_receive}", "{$name_receive}");
+                    //Recipients
+                    $mail->setFrom("{$email_send}", "{$name_send}");
+                    $mail->addAddress("{$email_receive}", "{$name_receive}");
 
-                //Content
-                $mail->isHTML(true);
-                $mail->Subject = "ระบบแจ้งขอใช้บริการ";
-                $mail->Body  = "เรียน คุณ {$name_receive} <br><br>";
-                $mail->Body .= "ระบบได้ดำเนินการเรียบร้อยแล้วครับ<br><br>";
-                $mail->Body .= "ขอใช้บริการ<br>";
-                $mail->Body .= "เลขที่บริการ : {$req_gen}";
-                $mail->Body .= "บริการ : {$service_name}<br>";
-                $mail->Body .= "รายละเอียดที่แจ้ง : {$req_text}<br><br>";
-                $mail->Body .= "สถานะการดำเนินการ : {$status_name}<br>";
-                $mail->Body .= "รายละเอียดการดำเนินการ : {$manage_text}<br>";
-                $mail->Body .= "วันที่ : {$date_send}<br>";
-                $mail->Body .= "เวลา : {$time_send} น.<br>";
-                $mail->send();
+                    //Content
+                    $mail->isHTML(true);
+                    $mail->Subject = "ระบบแจ้งขอใช้บริการ";
+                    $mail->Body  = "เรียน คุณ {$name_receive} <br><br>";
+                    $mail->Body .= "ระบบได้ดำเนินการเรียบร้อยแล้วครับ<br><br>";
+                    $mail->Body .= "ขอใช้บริการ<br>";
+                    $mail->Body .= "เลขที่บริการ : {$req_gen}";
+                    $mail->Body .= "บริการ : {$service_name}<br>";
+                    $mail->Body .= "รายละเอียดที่แจ้ง : {$req_text}<br><br>";
+                    $mail->Body .= "สถานะการดำเนินการ : {$status_name}<br>";
+                    $mail->Body .= "รายละเอียดการดำเนินการ : {$manage_text}<br>";
+                    $mail->Body .= "วันที่ : {$date_send}<br>";
+                    $mail->Body .= "เวลา : {$time_send} น.<br>";
+                    $mail->send();  
+                  }
+                  
+                  if($mail_option=='1'){
+                    $to      = "{$email_receive}";
+                    $subject = "ระบบแจ้งขอใช้บริการ";
+                    $message = "
+                        เรียน คุณ {$name_receive} <br><br>
+                        ระบบได้ดำเนินการเรียบร้อยแล้วครับ<br><br>
+                        ขอใช้บริการ<br>
+                        เลขที่บริการ : {$req_gen}
+                        บริการ : {$service_name}<br>
+                        รายละเอียดที่แจ้ง : {$req_text}<br><br>
+                        สถานะการดำเนินการ : {$status_name}<br>
+                        รายละเอียดการดำเนินการ : {$manage_text}<br>
+                        วันที่ : {$date_send}<br>
+                        เวลา : {$time_send} น.<br>
+                    ";
+
+                    // HTML mail
+                    $headers  = 'MIME-Version: 1.0' . "\r\n";
+                    $headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
+
+                    $headers .= "From: {$email}"."\r\n" .
+                        "Reply-To: {$email}"."\r\n" .
+                        'X-Mailer: PHP/' . phpversion();
+                    mail($to, $subject, $message, $headers);    
+                }
 
 /*$line_text = "
 ---------------------
@@ -676,12 +707,12 @@ $line_text = "
 
                 echo lineNotify($line_text,$line_token);
               } catch (Exception $e) {
-                alertMsg('danger','ระบบมีปัญหา, กรุณาลองใหม่อีกครั้งครับ','request.php');
+                alertMsg('danger','ระบบมีปัญหา, กรุณาลองใหม่อีกครั้งครับ','approve.php');
               }
             }
 
             if($result){
-              alertMsg('success','เพิ่มการดำเนินการเรียบร้อยแล้วครับ','manage.php');
+              alertMsg('success','เพิ่มการดำเนินการเรียบร้อยแล้วครับ','approve.php');
             } else {
               alertMsg('danger','ระบบมีปัญหา, กรุณาลองใหม่อีกครั้งครับ',"?id={$req_id}");
             }
