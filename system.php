@@ -65,24 +65,24 @@
               <div class="card-body">
                 <form action="?act=update" method="POST">
                   <div class="form-group row">
-                    <label class="col-sm-4 col-form-label text-md-right">ชื่อแบรน</label>
+                    <label class="col-sm-4 col-form-label text-md-right">ชื่อเว็บ</label>
                     <div class="col-sm-4">
                       <input type="text" class="form-control" name="company_name" 
-                        value="<?php echo $row['company_name'] ?>" required>
+                        value="<?php echo $row['company_name'] ?>" required readonly>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="col-sm-4 col-form-label text-md-right">ชื่อ Gmail</label>
                     <div class="col-sm-3">
                       <input type="text" class="form-control" name="gmail_name" 
-                        value="<?php echo $row['gmail_name'] ?>" required>
+                        value="<?php echo $row['gmail_name'] ?>" required readonly>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="col-sm-4 col-form-label text-md-right">ชื่อผู้ใช้ระบบ Gmail</label>
                     <div class="col-sm-3">
                       <input type="email" class="form-control" name="gmail_username" 
-                        value="<?php echo $row['gmail_username'] ?>" required>
+                        value="<?php echo $row['gmail_username'] ?>" required readonly>
                     </div>
                   </div>
                   <div class="form-group row">
@@ -92,17 +92,27 @@
                     </div>
                   </div>
                   <div class="form-group row">
+                      <label class="col-sm-4 col-form-label text-md-right">ตั้งค่าอีเมล์</label>
+                      <div class="col-xl-3 col-md-6 mb-2">
+                        <select class="form-control form-control-md"
+                          onChange="location = this.options[this.selectedIndex].value;">
+                            <option <?php if($row['mail_option']==0) echo 'selected="selected"';?> value="0">Gmail</option>
+                            <option <?php if($row['mail_option']==1) echo 'selected="selected"';?> value="1">PHP mailer</option>
+                        </select>
+                      </div>
+                  </div>
+                  <div class="form-group row">
                     <label class="col-sm-4 col-form-label text-md-right">Line Token</label>
                     <div class="col-sm-6">
-                      <input type="text" class="form-control" name="line_token" 
-                        value="<?php echo $row['line_token'] ?>">
+                      <input type="password" class="form-control" name="line_token" 
+                        value="<?php echo $row['line_token'] ?>" readonly>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="col-sm-4 col-form-label text-md-right">ค่าเริ่มต้นรหัสผ่าน</label>
                     <div class="col-sm-3">
                       <input type="text" class="form-control" name="password_default" 
-                        value="<?php echo $row['password_default'] ?>">
+                        value="<?php echo $row['password_default'] ?>" readonly>
                     </div>
                   </div>
                   <div class="form-group row justify-content-center">
