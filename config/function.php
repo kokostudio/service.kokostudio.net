@@ -693,7 +693,7 @@
       AND req_status $filter_stat
       AND MONTH(req_create) $filter_month
       AND YEAR(req_create) $filter_year
-      ORDER BY req_status,req_id DESC";
+      ORDER BY FIELD(req_status,'2','4') DESC,req_id ASC ";
     $stmt = $dbcon->prepare($sql);
     $stmt->execute();
     return $stmt;
