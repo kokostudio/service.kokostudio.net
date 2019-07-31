@@ -27,6 +27,10 @@ update 31/7/2019
 - request.php
 - request_manage.php
 - request_approve.php
+
+เพิ่ม field ใน table ex_system
+- email varchar(50)
+- mail_option varchar(1)
 -----
 update 30/3/2019
 -----
