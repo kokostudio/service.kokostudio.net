@@ -21,6 +21,7 @@ update 31/7/2019
 ปรับปรุงไฟล์ บางส่วน
 - barnch.php
 - function.php
+
 เพิ่มการเลือกอีเมล์ สามารถเลือกใช้ได้ทั้ง gmail and php mail
 - system.php
 - request.php
