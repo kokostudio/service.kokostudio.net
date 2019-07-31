@@ -173,7 +173,8 @@
                             @$getServ = $_GET['serv'];
                             @$getStat = $_GET['stat'];
                             @$getUser = $_SESSION['user_code'];
-                            @$requests = getFilterRequestUser($getYear,$getMonth,$getCat,$getServ,$getStat,$getUser);
+                            @$requests = getFilterRequest($getYear,$getMonth,$getCat,$getServ,$getStat,$getUser);
+                            //getFilterRequestUser($getYear,$getMonth,$getCat,$getServ,$getStat,$getUser);
                             foreach($requests as $key => $req):
 							 $date_end = getDateEnd($req['req_id']);
                           ?>
@@ -769,10 +770,11 @@ $line_text = "
 ---------------------
 ";
 				  
-
+                //echo $line_text;
+               // echo $line_token;
                 echo lineNotify($line_text,$line_token);
 
-                alertMsg('success','แจ้งขอใช้บริการเรียบร้อยแล้วครับ','request.php');
+                //alertMsg('success','แจ้งขอใช้บริการเรียบร้อยแล้วครับ','request.php');
 
               } catch (Exception $e) {
                 alertMsg('danger','ระบบมีปัญหา, กรุณาลองใหม่อีกครั้งครับ','request.php');
