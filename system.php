@@ -72,10 +72,17 @@
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label class="col-sm-4 col-form-label text-md-right">ชื่อ Gmail</label>
+                    <label class="col-sm-4 col-form-label text-md-right">ชื่อ email</label>
                     <div class="col-sm-3">
                       <input type="text" class="form-control" name="gmail_name" 
                         value="<?php echo $row['gmail_name'] ?>" required readonly>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-4 col-form-label text-md-right">email</label>
+                    <div class="col-sm-3">
+                      <input type="text" class="form-control" name="email" 
+                        value="<?php echo $row['email'] ?>" required >
                     </div>
                   </div>
                   <div class="form-group row">
@@ -92,10 +99,9 @@
                     </div>
                   </div>
                   <div class="form-group row">
-                      <label class="col-sm-4 col-form-label text-md-right">ตั้งค่าอีเมล์</label>
+                      <label class="col-sm-4 col-form-label text-md-right">ตัวเลือกอีเมล์</label>
                       <div class="col-xl-3 col-md-6 mb-2">
-                        <select class="form-control form-control-md"
-                          onChange="location = this.options[this.selectedIndex].value;">
+                        <select class="form-control form-control-md" name="mail_option">
                             <option <?php if($row['mail_option']==0) echo 'selected="selected"';?> value="0">Gmail</option>
                             <option <?php if($row['mail_option']==1) echo 'selected="selected"';?> value="1">PHP mailer</option>
                         </select>
@@ -145,20 +151,24 @@
 
             $system_id = 1;
             $company_name = $_POST['company_name'];
+            $email = $_POST['email'];
             $gmail_name = $_POST['gmail_name'];
             $gmail_username = $_POST['gmail_username'];
             $gmail_password = $_POST['gmail_password'];
+            $mail_option = $_POST['mail_option'];
             $line_token = $_POST['line_token'];
             $password_default = $_POST['password_default'];
             $user_code = $_SESSION['user_code'];
 
-            $data_update = [$company_name,$gmail_name,$gmail_username,$gmail_password,$line_token,$password_default,$user_code,$system_id];
+            $data_update = [$company_name,$email,$gmail_name,$gmail_username,$gmail_password,$mail_option,$line_token,$password_default,$user_code,$system_id];
 
             $sql = "UPDATE ex_system SET
               company_name = ?,
+              email = ?,
               gmail_name = ?,
               gmail_username = ?,
               gmail_password = ?,
+              mail_option = ?,
               line_token = ?,
               password_default = ?,
               user_code = ?
