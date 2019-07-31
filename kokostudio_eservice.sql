@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 06, 2019 at 03:21 AM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.2.12
+-- Host: localhost
+-- Generation Time: Jan 15, 2019 at 04:50 PM
+-- Server version: 5.6.38
+-- PHP Version: 5.6.39
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `eservice_koko`
+-- Database: `kokostudio_serv`
 --
 
 -- --------------------------------------------------------
@@ -95,7 +95,7 @@ INSERT INTO `ex_department` (`dep_id`, `dep_name`, `dep_status`, `dep_create`, `
 (4, 'การตลาด (Marketing)', 1, '2018-12-19 13:00:28', '2018-12-19 06:00:28'),
 (5, 'ออกแบบ (Graphic)', 1, '2018-12-19 13:00:52', '2018-12-19 06:00:52'),
 (6, 'ซ่อมบำรุง (Maintenance)', 1, '2018-12-19 13:01:39', '2018-12-19 06:01:39'),
-(7, 'ตรวจรับ (Receive product)', 1, '2018-12-19 13:03:49', '2019-01-17 03:40:46'),
+(7, 'ตรวจรับ (Receive product)', 1, '2018-12-19 13:03:49', '2019-01-15 09:45:56'),
 (8, 'จัดซื้อ (Purchasing Department)', 1, '2018-12-27 13:57:55', '2019-01-15 09:45:59');
 
 -- --------------------------------------------------------
@@ -131,13 +131,6 @@ CREATE TABLE `ex_hardware` (
   `hw_create` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `hw_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `ex_hardware`
---
-
-INSERT INTO `ex_hardware` (`hw_id`, `hw_name`, `user_code`, `hw_asset`, `hw_image`, `hw_brand`, `hw_model`, `hw_serial_number`, `hw_computer_name`, `hw_domain_name`, `hw_ip`, `hw_mac`, `hw_cpu`, `hw_mainboard`, `hw_ram_1`, `hw_ram_2`, `hw_harddisk`, `hw_ssd`, `hw_monitor`, `hw_keyboard`, `hw_mouse`, `hw_text`, `hw_status`, `hw_create`, `hw_update`) VALUES
-(1, 'โน๊ตบุค', '10325', '00001', '0140M.jpg', 'ACER', 'X260', 'xxx', '0140M', '1', '0', '0', 'I5', 'ACER', '4', '4', '500', '55', '0', '0', '0', '', 1, '2019-02-26 15:31:44', '2019-02-26 08:31:45');
 
 -- --------------------------------------------------------
 
@@ -188,7 +181,10 @@ CREATE TABLE `ex_login` (
 --
 
 INSERT INTO `ex_login` (`login_id`, `user_code`, `user_username`, `user_password`, `login_create`, `login_update`) VALUES
-(2, '999999', 'admin', '$2y$10$YxXve7UNruVLFwu2bBg2hejvPenTdA1W/BcC6IOLho5uKj7uW5tNS', '2018-11-19 11:35:15', '2018-12-26 06:17:09');
+(2, '999999', 'admin', '$2y$10$YxXve7UNruVLFwu2bBg2hejvPenTdA1W/BcC6IOLho5uKj7uW5tNS', '2018-11-19 11:35:15', '2018-12-26 06:17:09'),
+(49, 'HR01', 'hr01', '$2y$10$Xt/F8jA252gef1QnqU.Vo.cqf2mZ5Y.Vsk7JYEox8A98vEPF2SG8W', '2019-01-14 09:26:16', '2019-01-14 02:26:16'),
+(50, 'AC', 'ac01', '$2y$10$725RaoSYFKo3qnTCeD9VA.e0e4m8GzPbwbdWKjx/A6lU7txabT7YC', '2019-01-14 10:29:27', '2019-01-14 03:29:28'),
+(51, 'hr02', 'hr02', '$2y$10$LZB3XSnFO3HoBPD/SV7gy.zMEftwt/G92erfBJCefF8oxSEZgZsFS', '2019-01-14 11:43:21', '2019-01-14 04:43:21');
 
 -- --------------------------------------------------------
 
@@ -207,6 +203,18 @@ CREATE TABLE `ex_manage` (
   `manage_create` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `ex_manage`
+--
+
+INSERT INTO `ex_manage` (`manage_id`, `req_id`, `manage_user`, `manage_file`, `manage_text`, `manage_date_start`, `manage_date_end`, `manage_create`) VALUES
+(1, 50, '999999', '', 'รอ', '2019-01-14', '2019-01-14', '2019-01-14 04:40:44'),
+(2, 49, '999999', '', 'ปปป', '2019-01-14', '2019-01-14', '2019-01-14 04:42:22'),
+(3, 51, '999999', '', 'xxx', '2019-01-15', '2019-01-15', '2019-01-15 07:10:18'),
+(4, 49, 'HR01', '', 'x', '2019-01-15', '2019-01-15', '2019-01-15 07:14:43'),
+(5, 52, '999999', '', 'ดดด', '2019-01-15', '2019-01-15', '2019-01-15 08:18:24'),
+(6, 53, '999999', '', 'fff', '2019-01-15', '2019-01-15', '2019-01-15 08:28:24');
+
 -- --------------------------------------------------------
 
 --
@@ -221,17 +229,29 @@ CREATE TABLE `ex_request` (
   `service_id` int(11) NOT NULL,
   `req_user` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `req_user_process` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `req_operator` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `req_dep` int(11) NOT NULL,
   `bra_id` int(11) NOT NULL,
   `req_branch` int(11) NOT NULL,
   `req_file` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `req_text` text COLLATE utf8_unicode_ci NOT NULL,
-  `req_rating` tinyint(2) NOT NULL,
   `req_status` int(11) DEFAULT '1',
   `req_create` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `req_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `ex_request`
+--
+
+INSERT INTO `ex_request` (`req_id`, `req_year`, `req_last`, `req_gen`, `service_id`, `req_user`, `req_user_process`, `req_dep`, `bra_id`, `req_branch`, `req_file`, `req_text`, `req_status`, `req_create`, `req_update`) VALUES
+(46, '2019', '00001', '201900001', 1, '999999', 'น้องเอ', 2, 3, 0, '', 'เครื่องช้าต้องลงใหม่ รอคิว', 1, '2019-01-14 09:27:24', '2019-01-14 05:22:42'),
+(47, '2019', '00002', '201900002', 7, '999999', 'พี่บี', 3, 2, 0, '', 'ส่งเมล์ไม่ได้', 1, '2019-01-14 09:40:04', '2019-01-14 05:22:34'),
+(48, '2019', '00003', '201900003', 10, 'AC', 'น้องซี', 3, 1, 0, '', 'โปรแกรมบัญชี', 1, '2019-01-14 10:32:15', '2019-01-14 05:22:31'),
+(49, '2019', '00004', '201900004', 9, 'HR01', 'น้องเอฟ', 2, 2, 0, '', 'เน็ตเดี้ยง', 6, '2019-01-14 10:34:00', '2019-01-15 07:17:26'),
+(50, '2019', '00005', '201900005', 1, '999999', 'พี่เอ', 2, 1, 0, '', 'จอพัง', 6, '2019-01-14 11:39:11', '2019-01-14 04:40:44'),
+(51, '2019', '00006', '201900006', 7, '999999', 'xxx', 2, 1, 0, '', 'xxx ccc', 4, '2019-01-14 12:19:16', '2019-01-15 07:10:18'),
+(52, '2019', '00007', '201900007', 7, '999999', 'ปปป', 2, 1, 0, '', 'ปปป', 6, '2019-01-15 15:17:49', '2019-01-15 08:18:24'),
+(53, '2019', '00008', '201900008', 10, '999999', 'กกกก', 3, 3, 0, '', 'กกก', 6, '2019-01-15 15:27:43', '2019-01-15 08:28:24');
 
 -- --------------------------------------------------------
 
@@ -254,7 +274,7 @@ CREATE TABLE `ex_service` (
 --
 
 INSERT INTO `ex_service` (`service_id`, `cat_id`, `bra_id`, `service_name`, `service_status`, `service_create`, `service_update`) VALUES
-(1, 1, 0, 'คอมพิวเตอร์เปิดไม่ติด , ขึ้น Blue Screen', 2, '2018-11-26 11:19:08', '2019-02-28 01:17:10'),
+(1, 1, 0, 'คอมพิวเตอร์เปิดไม่ติด , ขึ้น Blue Screen', 1, '2018-11-26 11:19:08', '2018-11-26 08:29:57'),
 (2, 1, 0, 'Monitor หน้าจอไม่มีภาพขึ้น, หน้าจอภาพเป็นเส้น', 1, '2018-11-22 15:02:31', '2018-11-22 08:18:03'),
 (3, 1, 0, 'Printer ปริ้นส์ไม่ออก, ปริ้นส์แล้วตัวหนังสือขาด ตกหล่น, ไม่ดึงกระดาษ', 1, '2018-11-22 15:17:26', '2018-11-22 08:17:57'),
 (4, 1, 0, 'UPS ไม่สำรองไฟ, เปิดไม่ติด', 1, '2018-11-22 15:17:38', '2018-11-22 08:17:44'),
@@ -329,7 +349,7 @@ INSERT INTO `ex_status` (`status_id`, `status_name`, `status_status`, `status_up
 (2, 'กำลังดำเนินการ', 1, '2018-12-11 06:26:37'),
 (3, 'รออุปกรณ์ทดแทน', 1, '2018-12-11 06:26:39'),
 (4, 'ดำเนินการเรียบร้อยแล้ว', 1, '2018-12-11 06:26:41'),
-(5, 'ยกเลิกรายการ', 2, '2019-02-28 02:22:51'),
+(5, 'ยกเลิกรายการ', 1, '2018-12-11 06:26:43'),
 (6, 'รออนุมัติ', 1, '2018-12-27 09:55:19'),
 (7, 'อนุมัติแล้ว', 1, '2019-01-15 07:04:20');
 
@@ -342,6 +362,8 @@ INSERT INTO `ex_status` (`status_id`, `status_name`, `status_status`, `status_up
 CREATE TABLE `ex_system` (
   `system_id` int(11) NOT NULL,
   `company_name` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `mail_option` varchar(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
   `gmail_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `gmail_username` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `gmail_password` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
@@ -358,8 +380,8 @@ CREATE TABLE `ex_system` (
 -- Dumping data for table `ex_system`
 --
 
-INSERT INTO `ex_system` (`system_id`, `company_name`, `gmail_name`, `gmail_username`, `gmail_password`, `line_token`, `line_token_k1`, `line_token_k3`, `password_default`, `user_code`, `system_create`, `system_update`) VALUES
-(1, 'e-Service', 'e-Service Notification', 'xxx@gmail.com', 'xxx', 'xxx', '', '', '123456', '999999', '2018-11-23 14:24:14', '2019-01-12 09:06:47');
+INSERT INTO `ex_system` (`system_id`, `company_name`, `email`, `mail_option`, `gmail_name`, `gmail_username`, `gmail_password`, `line_token`, `line_token_k1`, `line_token_k3`, `password_default`, `user_code`, `system_create`, `system_update`) VALUES
+(1, 'e-Service', 'e-Service Notification', 'xxx@mail.com', '1', 'xxx@gmail.com', 'xxx', 'xxx', '', '', '123456', '999999', '2018-11-23 14:24:14', '2019-01-12 09:06:47');
 
 -- --------------------------------------------------------
 
@@ -393,7 +415,10 @@ CREATE TABLE `ex_user` (
 --
 
 INSERT INTO `ex_user` (`user_id`, `user_code`, `user_name`, `user_surname`, `user_picture`, `user_nickname`, `dep_id`, `bra_id`, `user_branch`, `user_email`, `user_telephone`, `user_mobile`, `user_line`, `user_level`, `user_approve`, `user_status`, `user_create`, `user_update`) VALUES
-(2, '999999', 'Administrator', 'System', '999999.jpg', 'Administrator', 1, 2, '', 'support@kokostudio.net', '', '', '', 99, 0, 1, '2018-11-19 11:35:15', '2019-01-15 09:48:04');
+(2, '999999', 'Administrator', 'System', '999999.jpg', 'Administrator', 1, 2, '', 'support@kokostudio.net', '', '', '', 99, 0, 1, '2018-11-19 11:35:15', '2019-01-15 09:48:04'),
+(51, 'HR01', 'HR', 'B2', '', 'HR', 2, 2, '', 'hr@mail.com', '', '', '', 1, 1, 1, '2019-01-14 09:26:16', '2019-01-14 04:13:44'),
+(52, 'AC', 'Account', 'B3', '', 'AC', 3, 3, '', 'ac@mail.com', '', '', '', 1, 1, 1, '2019-01-14 10:29:27', '2019-01-15 09:37:19'),
+(53, 'hr02', 'HR', 'B2', '', 'HR', 2, 3, '', 'hr@mail.com', '', '', '', 1, 1, 1, '2019-01-14 11:43:21', '2019-01-14 09:59:15');
 
 --
 -- Indexes for dumped tables
@@ -491,25 +516,25 @@ ALTER TABLE `ex_user`
 -- AUTO_INCREMENT for table `ex_branch`
 --
 ALTER TABLE `ex_branch`
-  MODIFY `bra_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `bra_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `ex_category`
 --
 ALTER TABLE `ex_category`
-  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `ex_department`
 --
 ALTER TABLE `ex_department`
-  MODIFY `dep_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `dep_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `ex_hardware`
 --
 ALTER TABLE `ex_hardware`
-  MODIFY `hw_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `hw_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `ex_hardware_detail`
@@ -527,49 +552,49 @@ ALTER TABLE `ex_log`
 -- AUTO_INCREMENT for table `ex_login`
 --
 ALTER TABLE `ex_login`
-  MODIFY `login_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `login_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `ex_manage`
 --
 ALTER TABLE `ex_manage`
-  MODIFY `manage_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `manage_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `ex_request`
 --
 ALTER TABLE `ex_request`
-  MODIFY `req_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `req_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `ex_service`
 --
 ALTER TABLE `ex_service`
-  MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `ex_software`
 --
 ALTER TABLE `ex_software`
-  MODIFY `sw_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `sw_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `ex_status`
 --
 ALTER TABLE `ex_status`
-  MODIFY `status_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `status_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `ex_system`
 --
 ALTER TABLE `ex_system`
-  MODIFY `system_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `system_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `ex_user`
 --
 ALTER TABLE `ex_user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
