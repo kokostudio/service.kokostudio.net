@@ -831,6 +831,7 @@ $line_text = "
   <script>
     $(document).ready(function() {
       $('#data').DataTable({
+        "pageLength": 25,
         "oLanguage": {
           "sLengthMenu": "แสดง _MENU_ ลำดับ ต่อหน้า",
           "sZeroRecords": "ไม่พบข้อมูลที่ค้นหา",
