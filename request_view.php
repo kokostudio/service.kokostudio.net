@@ -11,6 +11,7 @@
     header('location: 404.html');
     die();
   }
+  unset($_SESSION["login_req_id"]);
 
   @$req_id = $_GET['id'];
   $stmt = getQueryRequest($req_id);
