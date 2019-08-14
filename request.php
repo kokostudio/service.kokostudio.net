@@ -757,7 +757,7 @@
                     $mail->Body .= "ลิ้ง : {$actual_link}/view.php?id={$_SESSION["last_id"]}<br>";
                     $mail->Body .= "วันที่ : {$date_send}<br>";
                     $mail->Body .= "เวลา : {$time_send} น.<br>";
-                    //$mail->send();
+                    $mail->send();
                       
                               
                 }
