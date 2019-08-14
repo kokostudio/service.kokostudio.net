@@ -137,7 +137,11 @@
         $stmt->execute($data_log);
 
         if($user_level == 1){
-          alertMsg('success','ยินดีต้อนรับ คุณ '.getUserNickname($_SESSION['user_code']).'','request.php');
+          if(isset($_SESSION["login_req_id"])){
+            alertMsg('info','ยินดีต้อนรับ คุณ '.getUserNickname($_SESSION['user_code']).' ','request_view.php?id='.$_SESSION["login_req_id"]);
+          }else{
+            alertMsg('success','ยินดีต้อนรับ คุณ '.getUserNickname($_SESSION['user_code']).'','request.php');
+          }
         } else {
           alertMsg('success','ยินดีต้อนรับ คุณ '.getUserNickname($_SESSION['user_code']).'','dashboard.php');
         }
