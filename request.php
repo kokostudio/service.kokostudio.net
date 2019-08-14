@@ -643,6 +643,7 @@
             $result = $stmt->execute($data);
 
             $last_id = $dbcon->lastInsertId();
+            $_SESSION["last_id"] = $last_id;
 
             // Update Picture
             if($req_file):
@@ -717,6 +718,8 @@
               try {
                 
                   if($mail_option=='0'){ 
+                      
+                    $actual_link = "http://{$_SERVER['HTTP_HOST']}";
                     
                     $mail = new PHPMailer(true); 
 
@@ -751,6 +754,7 @@
                     $mail->Body .= "ขอใช้บริการ<br>";
                     $mail->Body .= "บริการ : {$service_name}<br>";
                     $mail->Body .= "รายละเอียด : {$req_text}<br>";
+                    $mail->Body .= "ลิ้ง : {$actual_link}/view.php?id={$_SESSION["last_id"]}<br>";
                     $mail->Body .= "วันที่ : {$date_send}<br>";
                     $mail->Body .= "เวลา : {$time_send} น.<br>";
                     //$mail->send();
@@ -793,6 +797,7 @@ $line_text = "
 เลขที่บริการ : {$req_gen}
 บริการ : {$service_name}
 รายละเอียด : {$req_text}
+ลิ้ง : {$actual_link}/view.php?id={$_SESSION["last_id"]}
 วันที่ : {$date_send}
 เวลา : {$time_send} น.
 ผู้รับดำเนินการ : {$name_user_operator}
