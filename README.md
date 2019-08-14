@@ -30,10 +30,12 @@
 update 14/8/2019
 -----
 เพิ่ม ดูการแจ้งซ่อม โดยไม่ต้องเข้าระบบ
+
 ปรับปรุงไฟล์
 - request.php
 - request_view.php
 - index.php
+
 เพิ่มไฟล์
 - view.php
 -----
