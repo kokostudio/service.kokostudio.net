@@ -12,7 +12,7 @@
   use PHPMailer\PHPMailer\Exception;
 
   if(!isset($_SESSION['user_code'])){
-    header('location: 404.html');
+    header('location: index.html');
     die();
   }
 
